@@ -1,0 +1,23 @@
+server:
+  port: 8083
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.2.246:3306/nantong
+    username: root
+    password: 123456
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  type-aliases-package: com.example.demo
+configuration:
+  status: warn
+  appenders:
+    Console:
+    name: CONSOLE
+    target: SYSTEM_OUT
+    ThresholdFilter:
+      leve: ${sys:log.level.console}
+      onMatch: ACCEPT
+      onMismatch: DENY
+    PatternLayout:
+      pattern: "%d{yyyy-MM-dd}:"
