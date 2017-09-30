@@ -3,6 +3,7 @@ package com.example.demo.utils.restMessage;
 /**
  * Created by Tony on 2017/9/30.
  * com.example.demo.utils.restMessage.SpringBootMybatis
+ * 描述 ：工具类
  */
 public class RestCode {
     //成功
