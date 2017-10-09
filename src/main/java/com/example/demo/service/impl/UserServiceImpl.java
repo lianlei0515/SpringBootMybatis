@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> find(String id) {
-        UserExample userExample = new UserExample();
+       /* UserExample userExample = new UserExample();
         List<User> users = new ArrayList<>();
         if (StringUtils.isNoneBlank(id) && !"null".equals(id) && !"".equals(id)){
             UserExample.Criteria criteria = userExample.createCriteria();
@@ -36,7 +36,11 @@ public class UserServiceImpl implements UserService {
         }else {
             users = userMapper.selectByExample(userExample);
         }
-        logger.info("...................");
-        return users;
+        logger.info("...................");*/
+        List<User> all = userMapper.findAll();
+        System.out.println(all.size());
+        User oneByName = userMapper.findOneByName("asa");
+        System.out.println(oneByName);
+        return all;
     }
 }

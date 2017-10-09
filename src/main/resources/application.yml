@@ -3,9 +3,14 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.2.246:3306/nantong
+    url: jdbc:mysql://localhost:3306/lian_test
     username: root
-    password: 123456
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: mysql
+    show-sql: true
 mybatis:
   mapper-locations: classpath:/mapper/*.xml
   type-aliases-package: com.example.demo

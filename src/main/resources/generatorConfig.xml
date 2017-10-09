@@ -5,6 +5,7 @@
 
 <generatorConfiguration>
 
+    <properties resource="application.yml"/>
     <!--<context id="cvinfoTables" defaultModelType="flat" targetRuntime="MyBatis3Simple">-->
     <context id="tables" targetRuntime="MyBatis3">
         <commentGenerator>
@@ -14,7 +15,7 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://192.168.2.246:3306/nantong" userId="root" password="123456">
+                        connectionURL="${url}" userId="${username}" password="${password}">
         </jdbcConnection>
 
         <javaTypeResolver>
