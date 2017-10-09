@@ -1,7 +1,6 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.bean.User;
-import com.example.demo.bean.UserExample;
 import com.example.demo.dao.UserMapper;
 import com.example.demo.service.UserService;
 import org.apache.commons.lang3.StringUtils;
@@ -39,8 +38,6 @@ public class UserServiceImpl implements UserService {
         logger.info("...................");*/
         List<User> all = userMapper.findAll();
         System.out.println(all.size());
-        User oneByName = userMapper.findOneByName("asa");
-        System.out.println(oneByName);
         return all;
     }
 }

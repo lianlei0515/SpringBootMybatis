@@ -138,9 +138,9 @@ public class ReadExcelUtil {
 
 
     public static void main(String[] args) {
-        List<Map> temp = ReadExcelUtil.readExcel(new File("C:\\Users\\lenovo\\Desktop\\项目基本信息表(1).xlsx"));
+        List<Map> temp = ReadExcelUtil.readExcel(new File("C:\\Users\\Tony\\Desktop\\9月报销考勤.xlsx"));
         for(Map obj:temp){
-            System.out.printf(obj.toString());
+            System.out.println(obj.toString());
         }
     }
 }
