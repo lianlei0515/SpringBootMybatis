@@ -16,6 +16,12 @@ public class RestCode {
     public final static int OPERATIONFAILED = 5001;
     //没有数据
     public final static int NODATA = 4005;
+    //没有登录
+    public final static int NOTLOGIN = 5005;
+    //用户已存在
+    public final static int EXISTENCE = 8000;
+
+    public final static String NOTLOGIN_CN = "没有登录";
 
     public final static String SUCCESSMESSAGE_CN = "保存成功";
 
@@ -36,5 +42,11 @@ public class RestCode {
     public final static String NODATA_CN = "没有数据";
 
     public final static String SORRY_CN = "对不起！";
+
+    public final static String USERNAME_EXISTENCE_CN = "该用户名已被使用";
+
+    public final static String MAILBOX_EXISTENCE_CN = "该邮箱已被使用";
+
+    public final static String CELLPHONENUMBER_EXISTENCE_CN = "该手机号已被使用";
 
 }

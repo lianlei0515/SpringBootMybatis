@@ -16,6 +16,7 @@ public abstract class PublicClass implements Serializable {
     private String id;
 
     @Id
+    @Column(length = 35)
     public String getId() {
         return id;
     }
@@ -31,10 +32,10 @@ public abstract class PublicClass implements Serializable {
     private Date updateTime;
 
 
-    private int deletedState;
+    private Integer deletedState;
 
     @Temporal(TemporalType.TIMESTAMP) //时间类型
-    @Column(name = "create_time")
+    @Column(name = "create_time" ,  columnDefinition = "datetime NULL COMMENT '创建时间'")
     public Date getCreateTime() {
         return createTime;
     }
@@ -43,7 +44,7 @@ public abstract class PublicClass implements Serializable {
         this.createTime = createTime;
     }
     @Temporal(TemporalType.TIMESTAMP) //时间类型
-    @Column(name = "update_time")
+    @Column(name = "update_time" , columnDefinition = "datetime NULL COMMENT '修改时间'")
     public Date getUpdateTime() {
         return updateTime;
     }
@@ -51,12 +52,12 @@ public abstract class PublicClass implements Serializable {
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
-    @Column(name="deleted_state",columnDefinition="tinyint default 1")
-    public int getDeletedState() {
+    @Column(name="deleted_state",columnDefinition="tinyint default 1 COMMENT '删除状态:1：存在；0：已删除；2：冻结/关闭/废弃/禁止/停用'" , length = 2)
+    public Integer getDeletedState() {
         return deletedState;
     }
 
-    public void setDeletedState(int deletedState) {
-        this.deletedState = deletedState;
+    public void setDeletedState(Integer deletedState) {
+        this.deletedState = deletedState == null ? 1 : deletedState;
     }
 }

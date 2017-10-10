@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.bean.User;
+import com.example.demo.utils.restMessage.ResultMsg;
 
 import java.util.List;
 
@@ -10,4 +11,6 @@ import java.util.List;
  */
 public interface UserService {
     List<User> find(String id);
+
+    ResultMsg register(User user);
 }

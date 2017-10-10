@@ -10,75 +10,26 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "user")
-public class User extends PublicClass implements Serializable {
+public class User extends UserPublic implements Serializable {
 
-    private String name;
+    private int state;
 
-    private String sex;
+    private String password;
 
-    private String age;
-
-    public String getName() {
-        return name;
+    @Column(columnDefinition = "int(2) NULL COMMENT '用户状态，0:冻结；1：正常'")
+    public int getState() {
+        return state;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setState(int state) {
+        this.state = state;
+    }
+    @Column(columnDefinition = "VARCHAR(35) NULL COMMENT '登录密码'")
+    public String getPassword() {
+        return password;
     }
 
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
-
-    public String getAge() {
-        return age;
-    }
-
-    public void setAge(String age) {
-        this.age = age;
-    }
-
-    @Override
-    public String getId() {
-        return super.getId();
-    }
-
-    @Override
-    public void setId(String id) {
-        super.setId(id);
-    }
-
-    @Override
-    public Date getCreateTime() {
-        return super.getCreateTime();
-    }
-
-    @Override
-    public void setCreateTime(Date createTime) {
-        super.setCreateTime(createTime);
-    }
-
-    @Override
-    public Date getUpdateTime() {
-        return super.getUpdateTime();
-    }
-
-    @Override
-    public void setUpdateTime(Date updateTime) {
-        super.setUpdateTime(updateTime);
-    }
-
-    @Override
-    public int getDeletedState() {
-        return super.getDeletedState();
-    }
-
-    @Override
-    public void setDeletedState(int deletedState) {
-        super.setDeletedState(deletedState);
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

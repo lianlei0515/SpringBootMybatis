@@ -12,7 +12,7 @@ public class ResultMsg<T> implements Serializable {
     //返回编码
     private int code = RestCode.SUCCESSCODE;
     //提示消息
-    private String m = RestCode.QUERYWASSUCCESSFUL_CN;
+    private String message = RestCode.QUERYWASSUCCESSFUL_CN;
     //数据对象
     private T d;
 
@@ -34,7 +34,7 @@ public class ResultMsg<T> implements Serializable {
 
     public ResultMsg(int code, String m, T d) {
         this.code = code;
-        this.m = m;
+        this.message = m;
         this.d = d;
     }
 
@@ -45,7 +45,7 @@ public class ResultMsg<T> implements Serializable {
 
     public ResultMsg(int code, String m) {
         this.code = code;
-        this.m = m;
+        this.message = m;
     }
 
 
@@ -58,13 +58,13 @@ public class ResultMsg<T> implements Serializable {
         return this;
     }
 
-    public String getM() {
-        return m;
+    public String getMessage() {
+        return message;
     }
 
-    public ResultMsg setM(String m)
+    public ResultMsg setMessage(String m)
     {
-        this.m = m;
+        this.message = m;
         return this;
     }
 

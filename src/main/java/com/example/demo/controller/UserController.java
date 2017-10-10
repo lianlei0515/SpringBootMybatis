@@ -6,9 +6,7 @@ import com.example.demo.utils.createExce.DownloadExcel;
 import com.example.demo.utils.restMessage.RestCode;
 import com.example.demo.utils.restMessage.ResultMsg;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -30,15 +28,19 @@ public class UserController {
         List<User> users = userService.find(id);
         ResultMsg resultMsg = new ResultMsg().setD(users);
         if (users.size()==0){
-            resultMsg.setM(RestCode.NODATA_CN);
+            resultMsg.setMessage(RestCode.NODATA_CN);
         }
         return resultMsg;
     }
 
-    @RequestMapping("/getFile.do")
-    public void getFile(HttpServletRequest request , HttpServletResponse response){
-
+    @RequestMapping(value = "/getFile.do" , method = RequestMethod.POST)
+    public void getFile(HttpServletRequest request , HttpServletResponse response , @RequestBody User user){
+        System.out.println(user.getAge());
     }
 
-
+    @RequestMapping(value = "/register.do" , method = RequestMethod.POST)
+    public ResultMsg register(HttpServletRequest request , HttpServletResponse response , @RequestBody User user){
+        ResultMsg resultMsg = userService.register(user);
+        return resultMsg;
+    }
 }
