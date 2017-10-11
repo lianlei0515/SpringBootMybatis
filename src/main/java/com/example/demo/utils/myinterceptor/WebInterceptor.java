@@ -7,6 +7,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 /**
  * Created by Tony on 2017/10/10.
  * com.example.demo.utils.myinterceptor.SpringBootMybatis
+ * 描述：加载拦截器和设置拦截的路径
  */
 @Configuration
 public class WebInterceptor extends WebMvcConfigurerAdapter {

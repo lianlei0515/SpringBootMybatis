@@ -3,7 +3,7 @@ package com.example.demo.utils.restMessage;
 /**
  * Created by Tony on 2017/9/30.
  * com.example.demo.utils.restMessage.SpringBootMybatis
- * 描述 ：工具类
+ * 描述 ：返回信息
  */
 public class RestCode {
     //成功
@@ -20,6 +20,13 @@ public class RestCode {
     public final static int NOTLOGIN = 5005;
     //用户已存在
     public final static int EXISTENCE = 8000;
+    //内部错误
+    public final static int INSIDE = 8000;
+
+    //参数错误
+    public final static String PARAMETERERROR_CN = "参数错误";
+
+    public final static String INSIDE_CN = "内部错误";
 
     public final static String NOTLOGIN_CN = "没有登录";
 

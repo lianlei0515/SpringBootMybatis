@@ -1,4 +1,4 @@
-package com.example.demo.bean;
+package com.example.demo.bean.publiclasss;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -36,7 +36,7 @@ public abstract class UserPublic extends PublicClass {
         this.userName = userName;
     }
 
-    @Column(length = 2 , columnDefinition = "int(2) NULL COMMENT '用户性别，1：男；2：女'")
+    @Column(length = 2 , columnDefinition = "tinyint(2) NULL COMMENT '用户性别，1：男；2：女'")
     public int getSex() {
         return sex;
     }
@@ -45,7 +45,7 @@ public abstract class UserPublic extends PublicClass {
         this.sex = sex;
     }
 
-    @Column(length = 3 , columnDefinition = "int(4) NULL COMMENT '用户年龄'")
+    @Column(length = 3 , columnDefinition = "tinyint(4) NULL COMMENT '用户年龄'")
     public int getAge() {
         return age;
     }

@@ -22,7 +22,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
- * Created by HLH on 2017/5/2.
+ * 描述：使用Map的格式生成Excel【导出】
  */
 public class ExcelUtils {
 

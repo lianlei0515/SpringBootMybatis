@@ -3,6 +3,7 @@ package com.example.demo.service.impl;
 import com.example.demo.bean.User;
 import com.example.demo.dao.UserMapper;
 import com.example.demo.service.UserService;
+import com.example.demo.utils.ExceptionResult;
 import com.example.demo.utils.restMessage.RestCode;
 import com.example.demo.utils.restMessage.ResultMsg;
 import org.slf4j.Logger;
@@ -47,26 +48,31 @@ public class UserServiceImpl implements UserService {
         ResultMsg resultMsg = new ResultMsg();
         resultMsg.setCode(RestCode.EXISTENCE);
         //根据用户名称或手机号或邮箱查看是否存在
-        int userCount = 0;
-        userCount = userMapper.countByUserName(user.getUserName());
-        if (userCount == 0){
-            userCount = userMapper.countByCellPhoneNumber(user.getCellPhoneNumber());
+        try {
+            int userCount = 0;
+            userCount = userMapper.countByUserName(user.getUserName());
             if (userCount == 0){
-                userCount = userMapper.countByMailbox(user.getMailbox());
+                userCount = userMapper.countByCellPhoneNumber(user.getCellPhoneNumber());
                 if (userCount == 0){
-                    user.setId(UUID.randomUUID().toString().replace("-",""));
-                    User user1 = userMapper.save(user);
-                    resultMsg.setD(user1);
-                    resultMsg.setCode(RestCode.SUCCESSCODE);
-                    resultMsg.setMessage(RestCode.SUCCESSMESSAGE_CN);
+                    userCount = userMapper.countByMailbox(user.getMailbox());
+                    if (userCount == 0){
+                        user.setId(UUID.randomUUID().toString().replace("-",""));
+                        User user1 = userMapper.save(user);
+                        resultMsg.setD(user1);
+                        resultMsg.setCode(RestCode.SUCCESSCODE);
+                        resultMsg.setMessage(RestCode.SUCCESSMESSAGE_CN);
+                    }else {
+                        resultMsg.setMessage(RestCode.MAILBOX_EXISTENCE_CN);
+                    }
                 }else {
-                    resultMsg.setMessage(RestCode.MAILBOX_EXISTENCE_CN);
+                    resultMsg.setMessage(RestCode.CELLPHONENUMBER_EXISTENCE_CN);
                 }
             }else {
-                resultMsg.setMessage(RestCode.CELLPHONENUMBER_EXISTENCE_CN);
+                resultMsg.setMessage(RestCode.USERNAME_EXISTENCE_CN);
             }
-        }else {
-            resultMsg.setMessage(RestCode.USERNAME_EXISTENCE_CN);
+        }catch (Exception e){
+            e.printStackTrace();
+            resultMsg = ExceptionResult.exceptionResult(e.getCause().toString());
         }
         return resultMsg;
     }

@@ -1,8 +1,9 @@
 package com.example.demo.bean;
 
+import com.example.demo.bean.publiclasss.UserPublic;
+
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * Created by Tony on 2017/10/9.
@@ -16,7 +17,7 @@ public class User extends UserPublic implements Serializable {
 
     private String password;
 
-    @Column(columnDefinition = "int(2) NULL COMMENT '用户状态，0:冻结；1：正常'")
+    @Column(columnDefinition = "tinyint(2) NULL COMMENT '用户状态，0:冻结；1：正常'")
     public int getState() {
         return state;
     }

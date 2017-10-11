@@ -14,6 +14,7 @@ import java.util.Properties;
 /**
  * Created by Tony on 2017/10/10.
  * com.example.demo.utils.myinterceptor.SpringBootMybatis
+ * 描述：配置拦截器
  */
 public class MyInterceptor implements HandlerInterceptor {
 

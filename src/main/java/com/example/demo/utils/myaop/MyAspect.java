@@ -17,6 +17,7 @@ import java.util.Properties;
 /**
  * Created by Tony on 2017/9/5.
  * com.example.demo.utils.myaop.SpringBootMybatis
+ * 描述：配置拦截器
  */
 @Component
 @Aspect

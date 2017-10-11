@@ -21,6 +21,7 @@ import java.util.Map;
 /**
  * Created by Tony on 2017/9/11.
  * com.example.demo.utils.SpringBootMybatis
+ * 描述：读取excel文件信息，返回LIst<Map>格式
  */
 public class ExcelUtil {
 

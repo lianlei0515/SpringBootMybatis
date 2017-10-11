@@ -18,7 +18,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-
+/**
+ * 描述：读取excel文件信息，返回LIst<Map>格式
+ */
 public class ReadExcelUtil {
 
     static Logger logger = LoggerFactory.getLogger(ReadExcelUtil.class);
