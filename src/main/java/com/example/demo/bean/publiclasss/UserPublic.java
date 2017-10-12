@@ -23,7 +23,7 @@ public abstract class UserPublic extends PublicClass {
 
     private String realName;//用户真实姓名
 
-    private String IDNumber;
+    private String idNumber;
 
     private String mailbox;
 
@@ -79,13 +79,13 @@ public abstract class UserPublic extends PublicClass {
         this.realName = realName;
     }
 
-    @Column(columnDefinition = "VARCHAR(18) NULL COMMENT '用户身份证'")
-    public String getIDNumber() {
-        return IDNumber;
+    @Column(name = "id_number" , columnDefinition = "VARCHAR(18) NULL COMMENT '用户身份证'")
+    public String getIdNumber() {
+        return idNumber;
     }
 
-    public void setIDNumber(String IDNumber) {
-        this.IDNumber = IDNumber;
+    public void setIdNumber(String idNumber) {
+        this.idNumber = idNumber;
     }
 
     @Column(columnDefinition = "VARCHAR(30) NULL COMMENT '用户邮箱'")

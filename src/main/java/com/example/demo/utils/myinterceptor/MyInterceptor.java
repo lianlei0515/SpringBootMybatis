@@ -37,7 +37,6 @@ public class MyInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
         String requestURI = httpServletRequest.getRequestURI();
-        System.out.println(requestURI);
         String url = null;
         String[] split = urls.split(",");
         for (String url1: split) {

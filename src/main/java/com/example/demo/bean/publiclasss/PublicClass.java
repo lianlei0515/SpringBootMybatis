@@ -2,14 +2,29 @@ package com.example.demo.bean.publiclasss;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Tony on 2017/10/9.
  * com.example.demo.bean.SpringBootMybatis
+ *
+ * 所有实体的超级类；
+ * jpa注解：
+ *  @Entity：定义该类是一个实体
+ *  @Inheritance：属性指定继承策略，继承策略有SINGLE_TABLE、TABLE_PER_CLASS和JOINED三种
+ *      TABLE_PER_CLASS：注入到超类中，子类不需要注解。若子类继承该类之后同样会继承该类的属性并将所有的属性生成到子类的表中
+ *      SINGLE_TABLE：注入到超类中，子类不需要注解。若子类继承该类之后同样会继承该类的属性并将所有的属性生成到超类的表中
+ *      JOINED：注入到超类中，子类不需要注解，是将父类、子类分别存放在不同的表中，并且建立相应的外键，以确定相互之间的关系
+ *  @Transient：该注解时在创建表的时候忽略拥有此类注解的属性（就是不创建这个字段）
+ *  @Temporal：时间注解，策略有3种：（TemporalType.DATE）；（TemporalType.TIME）；（TemporalType.TIMESTAMP）此处不多做解释
+ *  @Column：对应数据据库中的字段
+ *      属性：length：字段长度
+ *            columnDefinition：设置默认属性值或注释
+ *
  */
 @Entity
-//@Table(name = "EMP")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class PublicClass implements Serializable {
 
@@ -33,6 +48,17 @@ public abstract class PublicClass implements Serializable {
 
 
     private Integer deletedState;
+
+    private List<?> objects = new ArrayList<>();
+
+    @Transient
+    public List<?> getObjects() {
+        return objects;
+    }
+
+    public void setObjects(List<?> objects) {
+        this.objects = objects;
+    }
 
     @Temporal(TemporalType.TIMESTAMP) //时间类型
     @Column(name = "create_time" ,  columnDefinition = "datetime NULL COMMENT '创建时间'")
