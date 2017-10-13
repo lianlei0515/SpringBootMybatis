@@ -48,6 +48,7 @@ public class MyInterceptor implements HandlerInterceptor {
         if (httpServletRequest.getRequestURI().equals(url)){
             return true;
         }
+        String method = httpServletRequest.getMethod();
         String header = httpServletRequest.getHeader("X-Token");
         if (StringUtils.isBlank(header)){
             PrintWriter writer = httpServletResponse.getWriter();

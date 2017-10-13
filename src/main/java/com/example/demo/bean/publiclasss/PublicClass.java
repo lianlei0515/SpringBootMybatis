@@ -26,7 +26,7 @@ import java.util.List;
  */
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class PublicClass implements Serializable {
+public abstract class PublicClass<T> implements Serializable {
 
     private String id;
 
@@ -49,15 +49,15 @@ public abstract class PublicClass implements Serializable {
 
     private Integer deletedState;
 
-    private List<?> objects = new ArrayList<>();
+    private T object;
 
     @Transient
-    public List<?> getObjects() {
-        return objects;
+    public T getObject() {
+        return object;
     }
 
-    public void setObjects(List<?> objects) {
-        this.objects = objects;
+    public void setObject(T object) {
+        this.object = object;
     }
 
     @Temporal(TemporalType.TIMESTAMP) //时间类型

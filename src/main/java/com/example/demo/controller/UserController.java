@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.bean.User;
 import com.example.demo.service.UserService;
+import com.example.demo.utils.jsonutil.JsonUtils;
 import com.example.demo.utils.restMessage.RestCode;
 import com.example.demo.utils.restMessage.ResultMsg;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
+import sun.net.www.http.HttpClient;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -19,7 +21,9 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Base64;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Tony on 2017/8/23.
@@ -90,5 +94,15 @@ public class UserController {
     public ResultMsg users(HttpServletRequest request , HttpServletResponse response , @PageableDefault(sort = { "createTime" }, direction = Sort.Direction.DESC)
                                        Pageable pageable,@RequestParam(value = "name") String userName){
         return userService.users(pageable,userName);
+    }
+
+    @RequestMapping(value = "/add.do" , method = RequestMethod.POST)
+    public ResultMsg add(HttpServletRequest request , HttpServletResponse response, String li){
+        return null;
+    }
+
+    @RequestMapping(value = "/login.do" , method = RequestMethod.POST)
+    public ResultMsg login(HttpServletRequest request , HttpServletResponse response, @RequestBody User user){
+        return null;
     }
 }
