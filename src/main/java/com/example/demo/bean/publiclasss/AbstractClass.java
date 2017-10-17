@@ -26,7 +26,7 @@ import java.util.List;
  */
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class PublicClass<T> implements Serializable {
+public abstract class AbstractClass<T> implements Serializable {
 
     private String id;
 

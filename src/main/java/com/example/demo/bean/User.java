@@ -1,11 +1,10 @@
 package com.example.demo.bean;
 
-import com.example.demo.bean.publiclasss.UserPublic;
+import com.example.demo.bean.publiclasss.AbstractUser;
 import com.example.demo.utils.md5util.Md5Util;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.UUID;
 
 /**
  * Created by Tony on 2017/10/9.
@@ -13,7 +12,7 @@ import java.util.UUID;
  */
 @Entity
 @Table(name = "user")
-public class User extends UserPublic implements Serializable {
+public class User extends AbstractUser implements Serializable {
 
     private Integer state;
 

@@ -37,7 +37,7 @@ public class ExcelUtil {
                 Map map = new LinkedHashMap<>();
                 XSSFRow row1 = sheet.getRow(i);
                 for (int j = row1.getFirstCellNum() ; j <= row1.getLastCellNum() ; j ++){
-                    if (row1.getCell(j) == null || row1.getCell(j).equals("")){
+                    if (row1.getCell(j) == null || "".equals(row1.getCell(j))){
                         break;
                     }else {
                         keys = row.getCell(j);

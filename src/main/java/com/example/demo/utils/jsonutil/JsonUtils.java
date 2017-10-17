@@ -18,6 +18,7 @@ import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -51,8 +52,9 @@ public class JsonUtils {
      */
     public static <T> List<T> mapToArray(Map dataMap ,String jsonString, Class<T> bean) {
         List<T> list = null;
-        if (dataMap == null || dataMap.size()<1)
+        if (dataMap == null || dataMap.size()<1) {
             return list;
+        }
         try {
             if (StringUtils.isBlank(jsonString)) {
                 JavaType javaType = objectMapper.getTypeFactory().constructParametricType(List.class, bean);
@@ -75,7 +77,7 @@ public class JsonUtils {
         T t = null;
         try {
             JSONObject o = null;
-            if (jsonStr != null && !jsonStr.equals("")) {
+            if (jsonStr != null && !"".equals(jsonStr)) {
                 o = (JSONObject) JSONObject.toJSON(map.get(jsonStr));
             } else {
                 o = (JSONObject) JSONObject.toJSON(map);
@@ -95,5 +97,34 @@ public class JsonUtils {
 
     public static String toJsonString(Object obj) {
         return JSON.toJSONString(obj);
+    }
+
+    /**
+     * 作者:   Tony
+     * 时间:   2017/10/16 9:17
+     * 方法名: delMap
+     * 参数:   [dataMap, data]
+     * 返回值: java.util.Map<java.lang.String,java.lang.Object>
+     * 描述  : 删除当前Map中的多余参数
+     */
+    public static Map<String , Object> delMap(Map dataMap , List<String> data){
+        try{
+            if (dataMap == null || dataMap.size()==0){
+                throw new NullPointerException("当前Map参数不能为空");
+            }else if (data == null || data.size()==0){
+                return dataMap;
+            }else {
+                for (String string : data){
+                    if (dataMap.containsKey(string)){
+                        dataMap.remove(string);
+                    }else {
+                        throw new NullPointerException("当前Map中没有"+string+"这个参数！！！");
+                    }
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return dataMap;
     }
 }

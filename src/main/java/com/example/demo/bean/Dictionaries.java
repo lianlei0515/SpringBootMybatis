@@ -1,10 +1,9 @@
 package com.example.demo.bean;
 
-import com.example.demo.bean.publiclasss.PublicClass;
+import com.example.demo.bean.publiclasss.AbstractClass;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Table;
 
 /**
@@ -13,7 +12,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "dictionaries")
-public class Dictionaries extends PublicClass {
+public class Dictionaries extends AbstractClass {
 
     private String name;
 

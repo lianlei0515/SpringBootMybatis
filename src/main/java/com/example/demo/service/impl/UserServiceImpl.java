@@ -94,7 +94,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public ResultMsg users(Pageable pageable, String userName) {
-        if (userName.equals("")||userName==null){
+        if ("".equals(userName) ||userName==null){
             return ResultMsg.getNew().setD(userMapper.findAll(pageable));
         }else {
             return ResultMsg.getNew().setD(userMapper.findAllByUserNameLike(pageable,"%"+userName+"%"));

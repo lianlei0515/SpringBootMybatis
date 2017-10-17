@@ -1,6 +1,6 @@
 package com.example.demo.utils.entityutil;
 
-import com.example.demo.bean.publiclasss.PublicClass;
+import com.example.demo.bean.publiclasss.AbstractClass;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.util.Assert;
 
@@ -16,11 +16,11 @@ public class EntityMapping {
 
 
     public static void setCreate( String userId) {
-        mappingEntity(PublicClass.class, "createTime" , new Date());
+        mappingEntity(AbstractClass.class, "createTime" , new Date());
     }
 
     public static void setUpdate( String userId) {
-        mappingEntity(PublicClass.class , "updateTime" , new Date());
+        mappingEntity(AbstractClass.class , "updateTime" , new Date());
     }
 
 

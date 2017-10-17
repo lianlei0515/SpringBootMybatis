@@ -9,7 +9,7 @@ import java.util.Date;
  */
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class UserPublic extends PublicClass {
+public abstract class AbstractUser extends AbstractClass {
 
     private String userName;//用户姓名
 

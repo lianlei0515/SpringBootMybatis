@@ -171,7 +171,7 @@ public class DownloadExcel {
      * @throws Exception
      */
     public static String getNumKb1(String s, int n, String type) throws Exception {
-        if(s.equals("0")||s.equals("0.0000")){
+        if("0".equals(s) || "0.0000".equals(s)){
             return 0+"";
         }
         Format numberFormat1=new DecimalFormat("#,###.0000");
