@@ -103,7 +103,7 @@ public class UserController {
 
     @RequestMapping(value = "/login.do" , method = RequestMethod.POST)
     public ResultMsg login(HttpServletRequest request , HttpServletResponse response, @RequestBody User user){
-        return null;
+        return userService.userLogin(user);
     }
 
 }

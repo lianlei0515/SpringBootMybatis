@@ -1,5 +1,7 @@
 package com.example.demo.bean.publiclasss;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -22,6 +24,9 @@ import java.util.List;
  *  @Column：对应数据据库中的字段
  *      属性：length：字段长度
  *            columnDefinition：设置默认属性值或注释
+ *   @GeneratedValue(generator = "system-uuid")
+ *   @GenericGenerator(name = "system-uuid",strategy = "uuid")
+ *      这两个生成UUid
  *
  */
 @Entity
@@ -31,7 +36,9 @@ public abstract class AbstractClass<T> implements Serializable {
     private String id;
 
     @Id
-    @Column(length = 35)
+    @GeneratedValue(generator = "system-uuid")
+    @GenericGenerator(name = "system-uuid",strategy = "uuid")
+    @Column(length = 50,name = "id")
     public String getId() {
         return id;
     }

@@ -18,4 +18,6 @@ public interface UserService {
     ResultMsg user(String id);
 
     ResultMsg users(Pageable pageable, String userName);
+
+    ResultMsg userLogin(User user);
 }

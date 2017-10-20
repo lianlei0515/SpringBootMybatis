@@ -49,7 +49,6 @@ public class UserServiceImpl implements UserService {
                 if (userCount == 0){
                     userCount = userMapper.countByMailbox(user.getMailbox());
                     if (userCount == 0){
-                        user.setId(UUID.randomUUID().toString().replace("-",""));
                         user.setCreateTime(new Date());
                         User user1 = userMapper.save(user);
                         resultMsg.setD(user1);
@@ -99,5 +98,11 @@ public class UserServiceImpl implements UserService {
         }else {
             return ResultMsg.getNew().setD(userMapper.findAllByUserNameLike(pageable,"%"+userName+"%"));
         }
+    }
+
+    @Override
+    public ResultMsg userLogin(User user) {
+        user =userMapper.getUser(user.getUserName(),user.getPassword());
+        return ResultMsg.getNew().setD(user);
     }
 }
