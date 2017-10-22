@@ -1,7 +1,6 @@
 package com.example.demo.dao;
 
 import com.example.demo.bean.User;
-import org.apache.ibatis.annotations.Select;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
